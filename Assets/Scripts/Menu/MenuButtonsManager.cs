@@ -1,15 +1,13 @@
 using UnityEngine;
 using DG.Tweening;
 using System.Collections.Generic;
-using Unity.VisualScripting;
-using System.Collections;
 
 public class MenuButtonsManager : MonoBehaviour
 {
     
     public List<GameObject> buttons;
 
- [Header("Animation")]   
+    [Header("Animation")]   
     public float duration = 0.5f;
     public float delay = 0.15f;
     public Ease ease = Ease.OutBack;

@@ -1418,7 +1418,7 @@ GameObject:
   m_Component:
   - component: {fileID: 926976516}
   m_Layer: 0
-  m_Name: === DEV ===
+  m_Name: === Develop ===
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1795,7 +1795,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1149129669}
   m_Layer: 0
-  m_Name: === ART ===
+  m_Name: === Art ===
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
