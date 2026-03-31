@@ -4,26 +4,42 @@ public class Player : MonoBehaviour
 {
 
     public Rigidbody2D rb;
-    public Vector2 velocity;
+    public Vector2 friction = new Vector2(-0.1f, 0);
 
     public float speed;
+    public float jumpForce = 10f;
+
+
+    //private bool _isJumping = false;
     
     void Update()
     {
-        Move();
+        Jump(); 
+        Movement();
     }
 
-    public void Move()
+    private void Movement()
     {
-        if (Input.GetKeyDown(KeyCode.LeftArrow))
+        float move = Input.GetAxis("Horizontal");
+        rb.linearVelocity = new Vector2(move * speed, rb.linearVelocity.y);
+
+        if(rb.linearVelocity.x > 0)
         {
-           rb.linearVelocity = new Vector2(-velocity.x, rb.linearVelocity.y);
+            rb.linearVelocity += friction;
         }
-        else if (Input.GetKeyDown(KeyCode.RightArrow))
+        else if(rb.linearVelocity.x < 0)
         {
-           rb.linearVelocity = new Vector2(velocity.x, rb.linearVelocity.y);
+            rb.linearVelocity -= friction;
         }
     }
+
+    private void Jump()
+        {
+            if(Input.GetKeyDown(KeyCode.Space))
+            {
+                rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+            }
+        }
 
 
 }
