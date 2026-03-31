@@ -7,10 +7,14 @@ public class Player : MonoBehaviour
     public Vector2 friction = new Vector2(-0.1f, 0);
 
     public float speed;
-    public float jumpForce = 10f;
+    public float runSpeed;
 
+    public float jumpForce = 6f;
 
-    //private bool _isJumping = false;
+    private float _currentSpeed;
+
+    private bool _isRunning;
+
     
     void Update()
     {
@@ -20,8 +24,10 @@ public class Player : MonoBehaviour
 
     private void Movement()
     {
+        
         float move = Input.GetAxis("Horizontal");
-        rb.linearVelocity = new Vector2(move * speed, rb.linearVelocity.y);
+        rb.linearVelocity = new Vector2(Input.GetKey(KeyCode.LeftShift) ? move * runSpeed : move * speed, rb.linearVelocity.y);
+
 
         if(rb.linearVelocity.x > 0)
         {

@@ -301,6 +301,7 @@ MonoBehaviour:
   rb: {fileID: 621299259}
   friction: {x: -0.1, y: 0}
   speed: 5
+  runSpeed: 8
   jumpForce: 6
 --- !u!1 &823290679
 GameObject:
