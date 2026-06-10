@@ -1,5 +1,6 @@
 using UnityEngine;
 using DG.Tweening;
+using Unity.VisualScripting;
 
 public class Player : MonoBehaviour
 {
@@ -11,53 +12,82 @@ public class Player : MonoBehaviour
     public float runSpeed;
     public float jumpForce = 6f;
 
-    [Header("Animation Setup")]
-    public float jumpScaleY = 1.2f; 
-    public float jumpScaleX= 0.7f; 
-    public float animationDuration = 0.2f;
-    public Ease easeType = Ease.OutBack;
+
+    [Header("Player Animations")]
+    public Animator animator;
+    public string boolRunning = "isRunning";
+    public string boolJumping = "isJumping";
+    public string boolFalling = "isFalling";
+    public float swipeTransition = 0.5f;
     
     void Update()
     {
-        Jump(); 
-        Movement();
+        HandleMovement();
+        HandleJump(); 
+        
     }
 
-    private void Movement()
+    private void HandleMovement()
     {
-        
         float move = Input.GetAxis("Horizontal");
-        rb.linearVelocity = new Vector2(Input.GetKey(KeyCode.LeftShift) ? move * runSpeed : move * speed, rb.linearVelocity.y);
 
+        if(move != 0)
+        {
+            animator.SetBool(boolRunning, true);
+        }
+        else
+        {
+            animator.SetBool(boolRunning, false);
+        }
 
         if(rb.linearVelocity.x > 0)
         {
+            rb.transform.DOScaleX(1, swipeTransition);
             rb.linearVelocity += friction;
         }
         else if(rb.linearVelocity.x < 0)
         {
+            rb.transform.DOScaleX(-1, swipeTransition);
             rb.linearVelocity -= friction;
+        }
+
+        if (Input.GetKey(KeyCode.LeftShift))
+        {
+            rb.linearVelocity = new Vector2(move * runSpeed, rb.linearVelocity.y);
+            animator.speed = 1.5f;
+        }
+        else
+        {
+            rb.linearVelocity = new Vector2(move * speed, rb.linearVelocity.y);
         }
     }
 
-    private void Jump()
+    private void HandleJump()
         {
             if(Input.GetKeyDown(KeyCode.Space))
             {
-                rb.linearVelocity = Vector2.up * jumpForce;
-                
-                rb.transform.localScale = Vector2.one; // Reset scale before applying jump animation
-                DOTween.Kill(rb.transform); // Kill any existing tweens on the transform to prevent conflicts
+                if(rb.linearVelocity.y != 0) return;
 
-                JumpAnimation();
+                animator.SetBool(boolJumping, true);
+                rb.linearVelocity = Vector2.up * jumpForce;
             }
+            else if(Input.GetKeyUp(KeyCode.Space))
+            {
+                animator.SetBool(boolJumping, false);
+            }
+
+            if(rb.linearVelocity.y < 0)
+            {
+                animator.SetBool(boolFalling, true);
+            }
+            else
+            {
+                animator.SetBool(boolFalling, false);
+            }
+            
         }
 
-    private void JumpAnimation()
-    {
-        rb.transform.DOScaleY(jumpScaleY, animationDuration).SetLoops(2, LoopType.Yoyo).SetEase(easeType);  
-        rb.transform.DOScaleX(jumpScaleX, animationDuration).SetLoops(2, LoopType.Yoyo).SetEase(easeType);  
-    }
+    
 
 
 }
