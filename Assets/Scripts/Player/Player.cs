@@ -16,7 +16,7 @@ public class Player : MonoBehaviour
     [Header("Player Animations")]
     public Animator animator;
     public string boolRunning = "isRunning";
-    public string boolJumping = "isJumping";
+    public string triggerJump = "jump";
     public string boolFalling = "isFalling";
     public float swipeTransition = 0.5f;
     
@@ -59,6 +59,7 @@ public class Player : MonoBehaviour
         else
         {
             rb.linearVelocity = new Vector2(move * speed, rb.linearVelocity.y);
+            animator.speed = 1f;
         }
     }
 
@@ -67,20 +68,16 @@ public class Player : MonoBehaviour
             if(Input.GetKeyDown(KeyCode.Space))
             {
                 if(rb.linearVelocity.y != 0) return;
-
-                animator.SetBool(boolJumping, true);
+                
+                animator.SetTrigger(triggerJump);
                 rb.linearVelocity = Vector2.up * jumpForce;
-            }
-            else if(Input.GetKeyUp(KeyCode.Space))
-            {
-                animator.SetBool(boolJumping, false);
             }
 
             if(rb.linearVelocity.y < 0)
             {
                 animator.SetBool(boolFalling, true);
             }
-            else
+            else 
             {
                 animator.SetBool(boolFalling, false);
             }
