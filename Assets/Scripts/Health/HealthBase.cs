@@ -6,7 +6,6 @@ public class HealthBase : MonoBehaviour
     public bool _destroyOnKill = false;   
 
     private int _currentLife;
-    private bool _isDead;
 
 
     void Awake()
@@ -15,8 +14,7 @@ public class HealthBase : MonoBehaviour
     }
 
     private void Init()
-    {
-        _isDead = false;    
+    {  
         _currentLife = startlife;
     }
 
@@ -36,7 +34,7 @@ public class HealthBase : MonoBehaviour
 
     private void Die()
     {
-        _isDead = true;
+        
 
         if (_destroyOnKill)
         {
