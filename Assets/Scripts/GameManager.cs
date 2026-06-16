@@ -22,7 +22,7 @@ public class GameManager : Singleton<GameManager>
     public Ease ease = Ease.OutBack;
 
 #region private variables
-    private GameObject _currentPlayer;
+    [SerializeField] private GameObject _currentPlayer;
 
 #endregion
 
@@ -33,7 +33,10 @@ public class GameManager : Singleton<GameManager>
 
     public void Init()
     {
-        SpawnPlayer();
+        if (_currentPlayer == null)
+        {
+            SpawnPlayer();
+        }
     } 
 
 

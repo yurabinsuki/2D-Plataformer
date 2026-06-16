@@ -3,16 +3,31 @@ using UnityEngine;
 public class EnemyBase : MonoBehaviour
 {
     public int damage = 1;
+    public Animator animator;
+    public string attackTrigger = "Attack";
+    public HealthBase health;
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        //Debug.Log(collision.transform.name); 
+        var health = collision.transform.GetComponent<HealthBase>();
 
-        var helth = collision.transform.GetComponent<HealthBase>();
-
-        if(helth != null)
+        if(health != null)
         {
-            helth.Damage(damage);
+            health.Damage(damage);
         }
     }
+
+    private void Attack()
+    {
+        if (animator != null)
+        {
+            animator.SetTrigger(attackTrigger);
+        }
+    }
+
+    public void Damage(int amount)
+    {
+        health.Damage(amount);
+    }
+
 }

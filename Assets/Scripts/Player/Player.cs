@@ -1,6 +1,5 @@
 using UnityEngine;
 using DG.Tweening;
-using Unity.VisualScripting;
 
 public class Player : MonoBehaviour
 {
@@ -24,7 +23,7 @@ public class Player : MonoBehaviour
     {
         HandleMovement();
         HandleJump(); 
-        
+        HandleFalling();
     }
 
     private void HandleMovement()
@@ -72,19 +71,19 @@ public class Player : MonoBehaviour
                 animator.SetTrigger(triggerJump);
                 rb.linearVelocity = Vector2.up * jumpForce;
             }
-
-            if(rb.linearVelocity.y < 0)
-            {
-                animator.SetBool(boolFalling, true);
-            }
-            else 
-            {
-                animator.SetBool(boolFalling, false);
-            }
-            
         }
 
-    
+    private void HandleFalling()
+    {
+        if(rb.linearVelocity.y < 0)
+        {
+            animator.SetBool(boolFalling, true);
+        }
+        else
+        {
+            animator.SetBool(boolFalling, false);
+        }
+    }
 
 
 }

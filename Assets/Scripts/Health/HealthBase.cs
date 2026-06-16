@@ -3,14 +3,19 @@ using UnityEngine;
 public class HealthBase : MonoBehaviour
 {
     public int startlife = 10;
-    public bool _destroyOnKill = false;   
+    public bool _destroyOnKill = false;  
 
     private int _currentLife;
+    [SerializeField] private FlashColor _flashColor;
 
 
     void Awake()
     {
         Init();
+        if(_flashColor == null)
+        {
+            _flashColor = GetComponent<FlashColor>();
+        }
     }
 
     private void Init()
@@ -21,7 +26,6 @@ public class HealthBase : MonoBehaviour
 
     public void Damage(int damage)
     {
-
         Debug.Log("Damage Taken: " + damage);
         
         _currentLife -= damage;
@@ -30,12 +34,15 @@ public class HealthBase : MonoBehaviour
         {
             Die();
         }
+
+        if(_flashColor != null)
+        {
+            _flashColor.Flash();
+        }
     }   
 
     private void Die()
     {
-        
-
         if (_destroyOnKill)
         {
             Destroy(gameObject);
