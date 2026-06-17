@@ -52,6 +52,7 @@ MonoBehaviour:
   damage: 1
   animator: {fileID: 348095069291807644}
   attackTrigger: Attack
+  deathTrigger: Death
   health: {fileID: 7129326516176911032}
 --- !u!61 &8616073886362619091
 BoxCollider2D:
@@ -87,7 +88,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0.16924691, y: 3.2292683}
+  m_Offset: {x: 0.16924691, y: 3.704575}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -97,7 +98,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 3.6638026, y: 6.47}
+  m_Size: {x: 3.6638026, y: 5.485655}
   m_EdgeRadius: 0
 --- !u!114 &7129326516176911032
 MonoBehaviour:
@@ -113,6 +114,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::HealthBase
   startlife: 10
   _destroyOnKill: 1
+  delayToDie: 0
   _flashColor: {fileID: 0}
 --- !u!50 &1708851930097186223
 Rigidbody2D:

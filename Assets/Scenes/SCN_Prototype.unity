@@ -119,6 +119,24 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &10125460 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8544950743191533676, guid: b6557a78016e66b4f8b62cdb5185f98b, type: 3}
+  m_PrefabInstance: {fileID: 1388338271}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &10125465
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 10125460}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f5521cdf593bcd4428c7b503e74d137f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerDeathHelper
+  player: {fileID: 901488770}
 --- !u!1 &35398935
 GameObject:
   m_ObjectHideFlags: 0
@@ -1697,6 +1715,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1953506924308321417, guid: b6557a78016e66b4f8b62cdb5185f98b, type: 3}
   m_PrefabInstance: {fileID: 1388338271}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &901488770 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3406689045391588373, guid: b6557a78016e66b4f8b62cdb5185f98b, type: 3}
+  m_PrefabInstance: {fileID: 1388338271}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 901488767}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43e799a9412604c4d8d4e23ebd966390, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Player
 --- !u!1 &916574003
 GameObject:
   m_ObjectHideFlags: 0
@@ -3049,10 +3078,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 8076836136635057696, guid: b6557a78016e66b4f8b62cdb5185f98b, type: 3}
+      propertyPath: _destroyOnKill
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8544950743191533676, guid: b6557a78016e66b4f8b62cdb5185f98b, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 10125465}
   m_SourcePrefab: {fileID: 100100000, guid: b6557a78016e66b4f8b62cdb5185f98b, type: 3}
 --- !u!4 &1391975743 stripped
 Transform:
@@ -4699,6 +4735,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1066173537}
     m_Modifications:
+    - target: {fileID: 938886712572653966, guid: a30bb386deb2124449d5126af8df22ed, type: 3}
+      propertyPath: m_Constraints
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 1188709965805231772, guid: a30bb386deb2124449d5126af8df22ed, type: 3}
       propertyPath: m_Name
       value: PFB_Dev_Enemy_02
@@ -4709,7 +4749,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1596770565485223329, guid: a30bb386deb2124449d5126af8df22ed, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -11.57
+      value: -10.23
       objectReference: {fileID: 0}
     - target: {fileID: 1596770565485223329, guid: a30bb386deb2124449d5126af8df22ed, type: 3}
       propertyPath: m_LocalPosition.z

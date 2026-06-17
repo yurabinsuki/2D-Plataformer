@@ -202,14 +202,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Player
   rb: {fileID: 9071654808778601301}
+  healthBase: {fileID: 8076836136635057696}
   friction: {x: -0.3, y: 0}
-  speed: 10
-  runSpeed: 15
-  jumpForce: 20
+  speed: 12
+  runSpeed: 17
+  jumpForce: 25
   animator: {fileID: 6122454445008359318}
   boolRunning: isRunning
   triggerJump: jump
   boolFalling: isFalling
+  triggerDeath: Death
   swipeTransition: 0.5
 --- !u!114 &8076836136635057696
 MonoBehaviour:
@@ -223,8 +225,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a61dc1757e8cffc4997215ea417f34ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HealthBase
-  startlife: 10
-  _destroyOnKill: 1
+  startlife: 1
+  _destroyOnKill: 0
+  delayToDie: 0
   _flashColor: {fileID: 184074135912938614}
 --- !u!1001 &867165012041365321
 PrefabInstance:
