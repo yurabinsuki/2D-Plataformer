@@ -1,24 +1,17 @@
 using UnityEngine;
+using Ebac.Core.Singleton;
+using TMPro;
 
-public class ItemManager : MonoBehaviour
+public class ItemManager : Singleton<ItemManager>
 {
-    public static ItemManager Instance;
+    public TextMeshProUGUI coinsCounterText;
     public int coins = 0;
 
-    private void Awake()
-    {
-        if (Instance == null)
+
+    void Start()
         {
-            Instance = this;
-            DontDestroyOnLoad(gameObject);
+            Reset();
         }
-        else
-        {
-            Destroy(gameObject);
-        }
-        
-        Reset();
-    }
 
     private void Reset()
     {
@@ -28,6 +21,6 @@ public class ItemManager : MonoBehaviour
     public void AddCoins(int amount)
     {
         coins += amount;
-        Debug.Log("Coins: " + coins);
+        coinsCounterText.text = "x " + coins.ToString();
     }
 }

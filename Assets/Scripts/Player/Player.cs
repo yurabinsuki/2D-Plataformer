@@ -1,12 +1,12 @@
 using UnityEngine;
 using DG.Tweening;
-using Unity.VisualScripting;
 
 public class Player : MonoBehaviour
 {
 
     [Header("Player Setup")]
     public Rigidbody2D rb;
+    public HealthBase healthBase;
     public Vector2 friction = new Vector2(-0.1f, 0);
     public float speed;
     public float runSpeed;
@@ -18,13 +18,36 @@ public class Player : MonoBehaviour
     public string boolRunning = "isRunning";
     public string triggerJump = "jump";
     public string boolFalling = "isFalling";
+    public string triggerDeath = "Death";
     public float swipeTransition = 0.5f;
+
+
+
+
+    void Awake()
+    {
+        if(healthBase != null)
+        {
+            healthBase.OnKill += PlayerKilled;
+        }
+    }
+
+    private void PlayerKilled()
+    {
+        healthBase.OnKill -= PlayerKilled; 
+        PlayerDeath();
+    }
+
+    private void PlayerDeath()
+    {
+        animator.SetTrigger(triggerDeath);  
+    }
     
     void Update()
     {
         HandleMovement();
         HandleJump(); 
-        
+        HandleFalling();
     }
 
     private void HandleMovement()
@@ -72,19 +95,23 @@ public class Player : MonoBehaviour
                 animator.SetTrigger(triggerJump);
                 rb.linearVelocity = Vector2.up * jumpForce;
             }
-
-            if(rb.linearVelocity.y < 0)
-            {
-                animator.SetBool(boolFalling, true);
-            }
-            else 
-            {
-                animator.SetBool(boolFalling, false);
-            }
-            
         }
 
-    
+    private void HandleFalling()
+    {
+        if(rb.linearVelocity.y < 0)
+        {
+            animator.SetBool(boolFalling, true);
+        }
+        else
+        {
+            animator.SetBool(boolFalling, false);
+        }
+    }
 
+    public void DestroyMe()
+    {
+        Destroy(gameObject);
+    }
 
 }
