@@ -1,9 +1,12 @@
 using UnityEngine;
 using Ebac.Core.Singleton;
+using TMPro;
 
 public class ItemManager : Singleton<ItemManager>
 {
+    public TextMeshProUGUI coinsCounterText;
     public int coins = 0;
+
 
     void Start()
         {
@@ -18,6 +21,6 @@ public class ItemManager : Singleton<ItemManager>
     public void AddCoins(int amount)
     {
         coins += amount;
-        Debug.Log("Coins: " + coins);
+        coinsCounterText.text = "x " + coins.ToString();
     }
 }
