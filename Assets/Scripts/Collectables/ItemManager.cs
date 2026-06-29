@@ -7,7 +7,6 @@ public class ItemManager : Singleton<ItemManager>
     public TextMeshProUGUI coinsCounterText;
     public SOInt coins;
 
-
     void Start()
         {
             Reset();
