@@ -201,18 +201,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43e799a9412604c4d8d4e23ebd966390, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Player
+  soPlayerSetup: {fileID: 11400000, guid: bed27f12ac109af419a468f305d34af9, type: 2}
   rb: {fileID: 9071654808778601301}
   healthBase: {fileID: 8076836136635057696}
-  friction: {x: -0.3, y: 0}
-  speed: 12
-  runSpeed: 17
-  jumpForce: 25
   animator: {fileID: 6122454445008359318}
-  boolRunning: isRunning
-  triggerJump: jump
-  boolFalling: isFalling
-  triggerDeath: Death
-  swipeTransition: 0.5
 --- !u!114 &8076836136635057696
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -303,14 +295,17 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 5000455042689278068, guid: 00afc9fb4087652419d090da0b825d97, type: 3}
       insertIndex: -1
       addedObject: {fileID: 8094652158199290623}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8835229685202505509, guid: 00afc9fb4087652419d090da0b825d97, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3993360404093588561}
   m_SourcePrefab: {fileID: 100100000, guid: 00afc9fb4087652419d090da0b825d97, type: 3}
 --- !u!114 &184074135912938614 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1046312343445834559, guid: 00afc9fb4087652419d090da0b825d97, type: 3}
   m_PrefabInstance: {fileID: 867165012041365321}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 8544950743191533676}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 85c46851af20ed247a375bd58ce0ba79, type: 3}
@@ -331,3 +326,21 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8007466312498025151, guid: 00afc9fb4087652419d090da0b825d97, type: 3}
   m_PrefabInstance: {fileID: 867165012041365321}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &8544950743191533676 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8835229685202505509, guid: 00afc9fb4087652419d090da0b825d97, type: 3}
+  m_PrefabInstance: {fileID: 867165012041365321}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &3993360404093588561
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8544950743191533676}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f5521cdf593bcd4428c7b503e74d137f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerDeathHelper
+  player: {fileID: 3406689045391588373}
