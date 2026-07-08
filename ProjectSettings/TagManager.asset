@@ -54,5 +54,8 @@ TagManager:
   - name: Projectiles
     uniqueID: 3493646027
     locked: 0
+  - name: Particles
+    uniqueID: 1883080127
+    locked: 0
   m_RenderingLayers:
   - Default
