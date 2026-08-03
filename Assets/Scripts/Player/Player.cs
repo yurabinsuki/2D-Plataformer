@@ -9,7 +9,7 @@ public class Player : MonoBehaviour
     public Rigidbody2D rb;
     public HealthBase healthBase;
     public Animator animator;
-
+    public ParticleSystem jumpParticle;
 
 
     void Awake()
@@ -82,6 +82,8 @@ public class Player : MonoBehaviour
                 
                 animator.SetTrigger(soPlayerSetup.triggerJump);
                 rb.linearVelocity = Vector2.up * soPlayerSetup.jumpForce;
+                
+                if(jumpParticle != null) jumpParticle.Play();
             }
         }
 

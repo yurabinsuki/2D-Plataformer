@@ -8,7 +8,10 @@ public class SOPlayerSetup : ScriptableObject
     public Vector2 friction = new Vector2(-0.1f, 0);
     public float speed;
     public float runSpeed;
+
+    [Header("Jump Setup")]
     public float jumpForce = 6f;
+    public ParticleSystem jumpParticle;
 
 
     [Header("Player Animations")]
