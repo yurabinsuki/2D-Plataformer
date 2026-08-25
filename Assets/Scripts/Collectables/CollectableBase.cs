@@ -3,6 +3,9 @@ using UnityEngine;
 public class CollectableBase : MonoBehaviour
 {
     public string compareTag = "Player";
+    public ParticleSystem particleSyetem;
+    public float timeToHide = 3f;
+    public GameObject objectToHide;
     
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -15,13 +18,24 @@ public class CollectableBase : MonoBehaviour
 
     protected virtual void Collect()
     {
-        Debug.Log("Collect");
-        gameObject.SetActive(false);
+        if(objectToHide != null)
+        {
+            objectToHide.SetActive(false);
+        }
+        Invoke("HideObject", timeToHide);
         OnCollect();
     }
 
     protected virtual void OnCollect()
     {
-        
+        if(particleSyetem != null)
+        {
+            particleSyetem.Play();
+        }
+    }
+
+    private void HideObject()
+    {
+        gameObject.SetActive(false);
     }
 }
