@@ -11,7 +11,6 @@ public class SOPlayerSetup : ScriptableObject
 
     [Header("Jump Setup")]
     public float jumpForce = 6f;
-    public ParticleSystem jumpParticle;
 
 
     [Header("Player Animations")]
