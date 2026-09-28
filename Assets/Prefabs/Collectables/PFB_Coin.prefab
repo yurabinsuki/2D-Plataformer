@@ -218,6 +218,7 @@ MonoBehaviour:
   timeToHide: 1
   objectToHide: {fileID: 7948694966937412936}
   collectSFX: {fileID: 8085874967785504105}
+  collider: {fileID: 7516861903668578757}
 --- !u!1 &7948694966937412936
 GameObject:
   m_ObjectHideFlags: 0

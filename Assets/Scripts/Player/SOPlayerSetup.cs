@@ -19,6 +19,5 @@ public class SOPlayerSetup : ScriptableObject
     public string boolFalling = "isFalling";
     public string triggerDeath = "Death";
     public float swipeTransition = 0.5f;
-
-
+    
 }
