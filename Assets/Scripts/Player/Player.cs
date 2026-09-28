@@ -10,7 +10,7 @@ public class Player : MonoBehaviour
     public HealthBase healthBase;
     public Animator animator;
     public ParticleSystem jumpParticle;
-
+    public RandomizeAudioClips audioManager;
 
     void Awake()
     {
@@ -84,6 +84,7 @@ public class Player : MonoBehaviour
                 rb.linearVelocity = Vector2.up * soPlayerSetup.jumpForce;
                 
                 if(jumpParticle != null) jumpParticle.Play();
+                if(audioManager != null) audioManager.PlayRandom("Jump");               
             }
         }
 
@@ -102,6 +103,7 @@ public class Player : MonoBehaviour
     public void DestroyMe()
     {
         Destroy(gameObject);
+        GameManager.Instance.EndGame();
     }
 
 }

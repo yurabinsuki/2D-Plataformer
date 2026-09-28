@@ -54,6 +54,7 @@ MonoBehaviour:
   attackTrigger: Attack
   deathTrigger: Death
   health: {fileID: 7129326516176911032}
+  timeToDestroy: 1
 --- !u!61 &8616073886362619091
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -113,9 +114,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HealthBase
   startlife: 10
-  _destroyOnKill: 1
+  _destroyOnKill: 0
   delayToDie: 0
-  _flashColor: {fileID: 0}
+  _flashColor: {fileID: 3691013357212955260}
 --- !u!50 &1708851930097186223
 Rigidbody2D:
   serializedVersion: 5

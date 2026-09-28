@@ -49,6 +49,7 @@ MonoBehaviour:
   firePoint: {fileID: 1866514599505901588}
   shootInterval: 0.1
   playerSideReference: {fileID: 1953506924308321417}
+  audioManager: {fileID: 3389431539105518864}
 --- !u!1 &2724379948816482757
 GameObject:
   m_ObjectHideFlags: 0
@@ -208,6 +209,7 @@ MonoBehaviour:
   healthBase: {fileID: 8076836136635057696}
   animator: {fileID: 6122454445008359318}
   jumpParticle: {fileID: 5204967017386945369}
+  audioManager: {fileID: 3389431539105518864}
 --- !u!114 &8076836136635057696
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -314,6 +316,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 85c46851af20ed247a375bd58ce0ba79, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FlashColor
+--- !u!114 &3389431539105518864 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2522411603546907225, guid: 00afc9fb4087652419d090da0b825d97, type: 3}
+  m_PrefabInstance: {fileID: 867165012041365321}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8544950743191533676}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c82c1f752d1056499542b119a05a504, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RandomizeAudioClips
 --- !u!4 &5291138737039824701 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5000455042689278068, guid: 00afc9fb4087652419d090da0b825d97, type: 3}

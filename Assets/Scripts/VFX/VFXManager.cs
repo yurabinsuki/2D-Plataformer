@@ -7,8 +7,8 @@ public class VFXManager : Singleton<VFXManager>
 
     public enum VFXType
     {
-        JUMP,
-        RUN
+        Fireflies,
+        vfx2
     }
 
     public List<VFXManagerSetup> vfxSetup;
@@ -20,7 +20,7 @@ public class VFXManager : Singleton<VFXManager>
             if (setup.vfxType == vfxType)
             {
                 GameObject vfx = Instantiate(setup.vfxPrefab, position, Quaternion.identity);
-                Destroy(vfx, 5f);
+                Destroy(vfx, setup.duration);
                 break;
             }
         }
@@ -32,4 +32,5 @@ public class VFXManagerSetup
 {
     public VFXManager.VFXType vfxType;
     public GameObject vfxPrefab;
+    public float duration;
 }

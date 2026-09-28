@@ -6,6 +6,9 @@ public class CollectableBase : MonoBehaviour
     public ParticleSystem particleSyetem;
     public float timeToHide = 3f;
     public GameObject objectToHide;
+
+    [Header("Audio")]
+    public AudioSource collectSFX;
     
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -24,6 +27,11 @@ public class CollectableBase : MonoBehaviour
         }
         Invoke("HideObject", timeToHide);
         OnCollect();
+
+        if(collectSFX != null)
+        {
+            collectSFX.Play();
+        }
     }
 
     protected virtual void OnCollect()
