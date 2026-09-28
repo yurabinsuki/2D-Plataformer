@@ -8,17 +8,18 @@ public class GunBase : MonoBehaviour
     public float shootInterval = 0.5f;
 
     public Transform playerSideReference;
+    public RandomizeAudioClips audioManager;
 
     private Coroutine _currentCoroutine;
 
 
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetKeyDown(KeyCode.E))
         {
             _currentCoroutine = StartCoroutine(ShootCoroutine());
         }
-        else if (Input.GetMouseButtonUp(0))
+        else if (Input.GetKeyUp(KeyCode.E))
         {
             if (_currentCoroutine != null)
             {
@@ -41,5 +42,7 @@ public class GunBase : MonoBehaviour
         var projectile = Instantiate(projectilePrefab);
         projectile.transform.position = firePoint.position;
         projectile.side = playerSideReference.transform.localScale.x;
+
+        audioManager.PlayRandom("Shoot");
     }
 }
